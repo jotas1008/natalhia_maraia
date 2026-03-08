@@ -14,7 +14,7 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fce4ff);
+      background: linear-gradient(135deg, #efe7ff, #e4d7ff, #d8c9ff);
       color: #5a2a3a;
       overflow-x: hidden;
     }
@@ -78,7 +78,7 @@
 
     .btn {
       border: none;
-      background: linear-gradient(135deg, #d66895, #b04f78);
+      background: linear-gradient(135deg, #9b7cff, #7a5cff);
       color: white;
       padding: 14px 26px;
       font-size: 1rem;
@@ -183,37 +183,39 @@
     <div class="card">
       <div class="tag">08 de Março 💐</div>
       <h1>Feliz Dia das Mulheres</h1>
-      <div class="name">Para a minha “namorada” ❤️</div>
-      <p class="subtitle">
-        Hoje é um dia para celebrar a mulher incrível que você é: forte, linda, inteligente,
-        carinhosa e dona de um jeito que faz tudo ao redor ficar mais leve e mais bonito.
-      </p>
+      <div class="name">Natália</div>
+      
 
-      <button class="btn" onclick="toggleMessage()">Abrir minha mensagem</button>
+      <button class="btn" onclick="toggleMessage()">Abrir mensagemzinha</button>
 
-      <div class="message" id="messageBox">
+      <div class="message" id="messageBox" style="background-image:url('snoopy.jpg'); background-size:contain; background-repeat:no-repeat; background-position:right bottom;">
         <p>
-          Quis fazer esse cantinho só para te lembrar o quanto você é especial para mim.
-          Mais do que uma data, hoje é uma oportunidade de reconhecer a mulher admirável que você é,
-          com toda a sua força, sua delicadeza, sua luz e a forma única que você tem de deixar meus dias melhores.
+          Por mais que eu tente escrever aqui o que te retrata, ainda faltarão palavras, mas vamo lá.
+          Hoje (e qualquer outro dia) é uma oportunidade de reconhecer a grande mulher que você é.
+          Admiro todos os detalhes que te fazem ser a única Natália desse mundo.
         </p>
         <p>
-          Eu adoro o seu jeito, o seu sorriso, a sua presença e até esses detalhes que talvez você nem perceba,
-          mas que fazem toda a diferença. Você merece carinho, reconhecimento, paz, conquistas e tudo de mais bonito.
+          Seu belo sorriso, seu cabelo, sua inteligência, sua alegria, sua habilidade com música,
+          ter a melhor voz das missas de domingo e pilotar bem.
         </p>
         <p>
-          Feliz Dia das Mulheres. Que você nunca esqueça o quanto é valiosa, incrível e merecedora de coisas lindas.
+          Dividir um pouco da minha vida com você faz toda a diferença.
+          Feliz dia das mulheres, que você saiba o quão valiosa é, incrível e merecedora das melhores
+          coisas que existem nesse mundo.
         </p>
 
-        <div class="reasons">
-          <div class="reason">Seu sorriso ilumina qualquer momento ✨</div>
-          <div class="reason">Seu jeito torna tudo mais leve 🌷</div>
-          <div class="reason">Sua força inspira mais do que você imagina 💪</div>
-          <div class="reason">Sua presença faz bem ao coração 💖</div>
+        <div style="margin-top:28px; text-align:center;">
+          <button class="btn" onclick="mostrarSurpresa()" style="background: linear-gradient(135deg,#a890ff,#7a5cff);">
+            não clique
+          </button>
         </div>
+      </div>
+    </div>
 
-        <div class="footer">
-          Feito com carinho, só para você.
+        <div style="margin-top:28px; text-align:center;">
+          <button class="btn" onclick="alert('Eu avisei para não clicar 😌')" style="background: linear-gradient(135deg,#888,#555);">
+            não clique
+          </button>
         </div>
       </div>
     </div>
@@ -228,7 +230,10 @@
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
-      heart.innerText = Math.random() > 0.5 ? '💖' : '🌸';
+      const flowers = ['✿','❀','✽'];
+      const colors = ['#f6c945','#ffffff','#5aa9ff'];
+      heart.innerText = flowers[Math.floor(Math.random()*flowers.length)];
+      heart.style.color = colors[Math.floor(Math.random()*colors.length)];
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (4 + Math.random() * 4) + 's';
       heart.style.fontSize = (16 + Math.random() * 16) + 'px';
@@ -240,6 +245,23 @@
     }
 
     setInterval(createHeart, 700);
-  </script>
+  function mostrarSurpresa(){
+  const modal = document.getElementById('surpresaModal');
+  modal.style.display = 'flex';
+}
+
+function fecharSurpresa(){
+  const modal = document.getElementById('surpresaModal');
+  modal.style.display = 'none';
+}
+</script>
+
+<div id="surpresaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; z-index:999;">
+  <div style="position:relative; max-width:90%; max-height:90%;">
+    <img src="natalia_onibus.jpg" style="max-width:100%; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <button onclick="fecharSurpresa()" style="position:absolute; top:-10px; right:-10px; background:#fff; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; font-weight:bold;">×</button>
+  </div>
+</div>
 </body>
 </html>
+
