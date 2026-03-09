@@ -247,7 +247,12 @@
     setInterval(createHeart, 700);
   function mostrarSurpresa(){
   const modal = document.getElementById('surpresaModal');
+  const musica = document.getElementById('musicaSurpresa');
   modal.style.display = 'flex';
+  if (musica) {
+    musica.currentTime = 0;
+    musica.play().catch(() => {});
+  }
 }
 
 function fecharSurpresa(){
@@ -256,14 +261,13 @@ function fecharSurpresa(){
 }
 </script>
 
+<audio id="musicaSurpresa" src="musica.mp3"></audio>
+
 <div id="surpresaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; z-index:999;">
   <div style="position:relative; max-width:90%; max-height:90%;">
-    <img src="natalia_onibus.jpg" style="max-width:100%; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    <img src="foto_natalia.jpg" style="max-width:100%; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
     <button onclick="fecharSurpresa()" style="position:absolute; top:-10px; right:-10px; background:#fff; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; font-weight:bold;">×</button>
   </div>
 </div>
 </body>
 </html>
-
-</html>
-
